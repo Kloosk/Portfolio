@@ -1,3 +1,11 @@
+@keyframes arrow {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-30px);
+    }
+}
 *{
     margin: 0;
     padding: 0;
@@ -36,12 +44,18 @@
 ::-webkit-scrollbar-corner {
     background: transparent;
 }
+html{
+    scroll-behavior: smooth;
+}
 body{
     overflow-x: hidden;
     font-family: 'Lato', sans-serif;
 }
 canvas{
     background-color: #010A26;
+}
+a{
+    text-decoration: none;
 }
 .header{
     user-select: none;
@@ -51,6 +65,7 @@ canvas{
     font-size: 3rem;
     user-select: none;
     margin-bottom: 20px;
+    text-align: center;
 }
 .header__span{
     color: #BF1736;
@@ -121,7 +136,7 @@ canvas{
     height: 3px;
 }
 .nav__menu {
-    z-index: 1;
+    z-index: -1;
     position:absolute;
     bottom: 102%;
     left: 0;
@@ -129,10 +144,29 @@ canvas{
     height: 200px;
     background-color: #010A26;
     padding: 30px;
-    transform: translateY(100%);
+    transform: translateY(400px);
     opacity: 0;
     transition: all 0.5s ease-in-out;
     border-top: 2px solid #BF1736;
+}
+.nav__arrow{
+    padding-top: 3px;
+    position: absolute;
+    left: 10vw;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+.arrow__icon{
+    cursor: pointer;
+    z-index: 5;
+    animation: arrow 1s linear infinite;
+    font-size: 4rem;
+    color: #616F8C;
+    animation-play-state:paused;
+}
+.nav__arrow:hover .arrow__icon{
+    animation-play-state:running;
 }
 .menu--open{
     transform: translateY(0);
@@ -229,6 +263,7 @@ canvas{
 }
 .element__p{
     font-size: 1.2rem;
+    text-align: center;
 }
 .about__profile{
     display: flex;
@@ -262,7 +297,7 @@ canvas{
 }
 .tech__el{
     display: flex;
-    width: 80vw;
+    width: 80%;
     height: 30px;
     margin-bottom: 15px;
 }
@@ -308,14 +343,14 @@ canvas{
  }
 .portfolio{
     width: 100vw;
-    height: 100vh;
+    padding-bottom: 30px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 .portfolio__hr{
     margin: 10px 0;
-    width: 30%;
+    width: 80%;
     height: 5px;
     background-color: #04020F;
 }
@@ -323,6 +358,9 @@ canvas{
     display: grid;
     grid-template-columns: 1fr;
     align-content: center;
+}
+.portfolio__a{
+    pointer-events: none;
 }
 .project{
     width: 300px;
@@ -347,11 +385,11 @@ canvas{
     opacity: 0;
 }
 .project:hover .project__over{
-    opacity: 0.9;
+    opacity: 1;
 }
 .project__btn{
     transform: translateY(200px);
-    transition: transform 0.2s ease-in-out 0.2s, height 0.2s ease-in,border 0.2s ease-in;
+    transition: transform 0.2s ease-in-out 0.2s, height 0.5s ease-in,border 0.5s ease-in,display 0.2s ease-in-out 0.2s;
     user-select: none;
     cursor: pointer;
     outline: none;
@@ -371,7 +409,7 @@ canvas{
     transform: translateY(0);
 }
 .project__over:hover .project__h1{
-     transform: translateY(0);
+    transform: translateY(0);
  }
 
 .project__h1{
@@ -390,4 +428,128 @@ canvas{
     margin-top: 4px;
     font-size: 1rem;
     color: #BF1736;
+}
+.footer{
+    background-color: #010A26;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+.footer__h1{
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color:#616F8C;
+}
+.footer__hr{
+    margin: 20px 0;
+    width: 80%;
+    height: 5px;
+    background-color: #616F8C;
+    border: none;
+}
+.footer__form{
+    width: 65%;
+    margin-top: 50px;
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+}
+.form__input{
+    width:100%;
+    padding: 12px 5px;
+    margin-bottom: 3px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 2px solid #616F8C;
+    color: white;
+    outline: none;
+}
+.form__textarea{
+    background-color: transparent;
+    border: 2px solid #616F8C;
+    color: white;
+    width:100%;
+    font-size: 1.2rem;
+    padding: 5px 5px;
+    outline: none;
+}
+.form__input:focus,.form__textarea:focus{
+    border: 2px solid #BF1736;
+}
+.form__btn{
+    margin-top: 10px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 2rem;
+    color:#616F8C;
+    padding: 10px 0;
+    background: transparent;
+    border: 2px solid #616F8C;
+    cursor: pointer;
+    transition: all 0.1s ease-in;
+    outline: none;
+}
+.form__btn:hover{
+    color: #BF1736;
+    border: 2px solid #BF1736;
+}
+.copyright{
+    font-size: 1.2rem;
+    color: #616F8C;
+}
+.footer__social{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 70px 0;
+}
+.footer__social__element{
+    width: 70px;
+    height: 70px;
+    margin: 0 12px;
+    border: 2px solid #616F8C;
+    position: relative;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+.footer__social__element:hover{
+    transform: scale(1.1);
+    border: 2px solid #BF1736;
+    box-shadow: 0 0 15px #BF1736;
+}
+.footer__social__element:hover .footer__icon{
+    color: #BF1736;
+    text-shadow: 0 0 5px #BF1736;
+}
+.footer__icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    font-size: 2.2rem;
+    color: #616F8C;
+}
+.project--fitness{
+    background: url("./img/fitness.JPG") no-repeat center/cover ;
+}
+.project--this{
+    background: url("./img/this.JPG") no-repeat center/cover ;
+}
+@media (min-width: 620px)  {
+    .portfolio__a{
+        pointer-events: visible;
+    }
+    .about__grid{
+        grid-template-columns: repeat(2,1fr);
+    }
+    .tech__el{
+        width: 60%;
+    }
+    .portfolio__projects{
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 5px;
+    }
 }

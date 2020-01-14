@@ -1,4 +1,4 @@
-//CANVAS
+////////////////CANVAS//////////////////
 const canvas = document.querySelector("canvas");
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
@@ -74,9 +74,28 @@ window.addEventListener("mousemove",e => {
    mouse.x =  e.x;
    mouse.y =  e.y;
 });
-//CANVAS
+//////////////////////////////////////////////////
 const ham = document.querySelector(".nav__ham");
 ham.addEventListener("click",() => {
    const menu = document.querySelector(".nav__menu");
     menu.classList.toggle("menu--open");
+});
+const projectOver =  document.querySelectorAll(".project__over");
+projectOver.forEach(el => {
+    el.addEventListener("click",e => {
+        e.target.children[1].style.pointerEvents = "visible";
+        e.target.children[2].style.pointerEvents = "visible";
+    })
+});
+const form = document.querySelector(".footer__form");
+form.addEventListener("submit",e => {
+    let email = document.querySelector(".form__input").value;
+    let textarea = document.querySelector(".form__textarea").value;
+
+    if(email.length > 5 && email.includes("@") && email.includes(".") && textarea.length > 1){
+        console.log("Good");
+    }
+    else {
+        e.preventDefault();
+    }
 });

@@ -2,17 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ccicle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Portfolio</title>
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap&subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 <body>
-    <header class="header">
+    <header class="header" id="home">
         <canvas></canvas>
         <div class="header__center">
             <h1 class="header__h1">HELLO, <span class="header__span">I'M ŁUKASZ</span></h1>
-            <button class="header__btn">View my work<i class="fas fa-arrow-right header__icon"></i></button>
+            <a href="#about"><button class="header__btn">View my work<i class="fas fa-arrow-right header__icon"></i></button></a>
         </div>
     </header>
     <nav class="nav">
@@ -23,17 +25,17 @@
         </div>
         <div class="nav__menu">
             <ul class="nav__menu__ul">
-                <li class="nav__menu__li li--active">HOME</li>
-                <li class="nav__menu__li">ABOUT</li>
-                <li class="nav__menu__li">PORTFOLIO</li>
-                <li class="nav__menu__li">CONTACT</li>
+                <a href="#home"><li class="nav__menu__li li--active">HOME</li></a>
+                <a href="#about"><li class="nav__menu__li">ABOUT</li></a>
+                <a href="#projects"><li class="nav__menu__li">PORTFOLIO</li></a>
+                <a href="#contact"> <li class="nav__menu__li">CONTACT</li></a>
             </ul>
         </div>
-        <div class="arrow">
-            <i class="fas fa-angle-double-up"></i>
+        <div class="nav__arrow">
+            <a href="#home"><i class="fas fa-angle-double-up arrow__icon"></i></a>
         </div>
     </nav>
-    <section class="about">
+    <section class="about" id="about">
         <div class="about__header">
             <h1 class="about__h1">ABOUT</h1>
             <hr class="about__hr">
@@ -43,14 +45,14 @@
             <p class="profile__description">I am looking for my first job as a front-end developer. <span>I am programming for some time with longer or short breaks.</span></p>
         </div>
         <div class="about__grid">
-            <div class="about__grid__element">
+            <div class="about__grid__element" data-aos="fade-right">
                 <div class="element__icon">
                     <i class="fas fa-desktop about__icon"></i>
                 </div>
                 <h1 class="element__h1">RESPONSIVE</h1>
                 <p class="element__p">My pages work on all devices.</p>
             </div>
-            <div class="about__grid__element">
+            <div class="about__grid__element" data-aos="fade-left">
                 <div class="element__icon ">
                     <i class="fas fa-keyboard about__icon"></i>
                 </div>
@@ -60,78 +62,89 @@
         </div>
         <div class="about__tech">
             <div class="tech__el">
-                <div class="tech__el__name">HTML</div>
-                <div class="tech__el__slider">
+                <div class="tech__el__name" data-aos="fade-right">HTML</div>
+                <div class="tech__el__slider" data-aos="fade-left">
                     <div class="tech__el__progress"></div>
                     <div class="tech__el__percent">80%</div>
                 </div>
             </div>
             <div class="tech__el">
-                <div class="tech__el__name">CSS</div>
-                <div class="tech__el__slider">
+                <div class="tech__el__name" data-aos="fade-right">CSS</div>
+                <div class="tech__el__slider" data-aos="fade-left">
                     <div class="tech__el__progress "></div>
                     <div class="tech__el__percent">80%</div>
                 </div>
             </div>
             <div class="tech__el">
-                <div class="tech__el__name">JS</div>
-                <div class="tech__el__slider">
+                <div class="tech__el__name" data-aos="fade-right">JS</div>
+                <div class="tech__el__slider" data-aos="fade-left">
                     <div class="tech__el__progress progress--js"></div>
                     <div class="tech__el__percent">70%</div>
                 </div>
             </div>
             <div class="tech__el">
-                <div class="tech__el__name">React</div>
-                <div class="tech__el__slider">
+                <div class="tech__el__name" data-aos="fade-right">React</div>
+                <div class="tech__el__slider" data-aos="fade-left">
                     <div class="tech__el__progress progress--react"></div>
                     <div class="tech__el__percent">60%</div>
                 </div>
             </div>
             <div class="tech__el">
-                <div class="tech__el__name">Node js</div>
-                <div class="tech__el__slider">
+                <div class="tech__el__name" data-aos="fade-right">Node js</div>
+                <div class="tech__el__slider" data-aos="fade-left">
                     <div class="tech__el__progress progress--node"></div>
                     <div class="tech__el__percent">30%</div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="portfolio">
-        <div class="about__h1">PORTFOLIO</div>
-        <hr class="portfolio__hr">
-        <div class="portfolio__projects">
-            <div class="project">
+    <section class="portfolio" id="projects">
+        <div class="about__header">
+            <div class="about__h1">PORTFOLIO</div>
+            <hr class="portfolio__hr">
+        </div>
+        <div class="portfolio__projects ">
+            <div class="project project--this" data-aos="fade-up-right">
                 <div class="project__over">
+                    <div class="project__h1">This site<span class="project__span">Pure JS with CANVAS</span></div>
+                    <a class="portfolio__a" href=""><button class="project__btn">DEMO</button></a>
+                    <a class="portfolio__a" href="https://github.com/Kloosk/Gym"><button class="project__btn">GITHUB</button></a>
+                </div>
+            </div>
+            <div class="project project--fitness" data-aos="fade-up-left">
+                <div class="project__over ">
                     <div class="project__h1">Fitness<span class="project__span">React JS</span></div>
-                    <button class="project__btn">DEMO</button>
-                    <button class="project__btn">GITHUB</button>
+                    <a class="portfolio__a" href=""><button class="project__btn">DEMO</button></a>
+                    <a class="portfolio__a" href="https://github.com/Kloosk/Portfolio"><button class="project__btn">GITHUB</button></a>
                 </div>
             </div>
         </div>
     </section>
-    <footer class="footer">
-        <div class="footer__h1">Contact</div>
-        <hr class="footer__hr">
+    <footer class="footer" id="contact">
+        <div class="about__header">
+            <div class="footer__h1">Contact</div>
+            <hr class="footer__hr">
+        </div>
 
-        <form action="">
-            <input type="email" placeholder="Email">
-            <textarea name="" id="" cols="30" rows="10" placeholder="Your Message"></textarea>
-            <button>SUBMIT</button>
+        <form class="footer__form"  action="https://formspree.io/xvokakak" method="POST">
+            <input name="email" class="form__input" type="email" placeholder="Email">
+            <textarea name="message" class="form__textarea" rows="10" placeholder="Your Message"></textarea>
+            <button type="submit" class="form__btn">SUBMIT</button>
         </form>
 
         <div class="footer__social">
-            <div class="footer__social__element"><i class="fab fa-facebook-f"></i></div>
-            <div class="footer__social__element"><i class="fab fa-github"></i></div>
+            <a href="https://www.facebook.com/xlooks" class="footer__social__element"><i class="fab fa-facebook-f footer__icon"></i></a>
+            <a href="https://github.com/Kloosk?tab=repositories" class="footer__social__element"><i class="fab fa-github footer__icon"></i></a>
         </div>
 
         <p class="copyright">Łukasz Graś &copy; 2020</p>
     </footer>
 
-
-
-
-
 <script src="https://kit.fontawesome.com/7dc142f825.js"></script>
 <script src="script.js"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 </body>
 </html>
