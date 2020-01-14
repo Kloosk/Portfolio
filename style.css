@@ -91,6 +91,8 @@ a{
     cursor: pointer;
     transition: all 0.5s ease-in;
     outline: none;
+    display: flex;
+    align-items: center;
 }
 .header__btn:hover{
     border: 2px solid #BF1736;
@@ -104,6 +106,8 @@ a{
     transition: transform 0.5s ease-in;
     margin-left: 20px;
     color:#616F8C;
+    width: 45px;
+    height: 45px;
 }
 .nav{
     z-index: 4;
@@ -161,9 +165,10 @@ a{
     cursor: pointer;
     z-index: 5;
     animation: arrow 1s linear infinite;
-    font-size: 4rem;
     color: #616F8C;
     animation-play-state:paused;
+    width: 60px;
+    height: 60px;
 }
 .nav__arrow:hover .arrow__icon{
     animation-play-state:running;
@@ -255,8 +260,9 @@ a{
     left: 50%;
     transform: translate(-50%,-50%);
     z-index: 3;
-    font-size: 3rem;
     color:#F0EFEB;
+    width: 70px;
+    height: 70px;
 }
 .element__h1{
     font-size: 2rem;
@@ -531,6 +537,8 @@ a{
     transform: translate(-50%,-50%);
     font-size: 2.2rem;
     color: #616F8C;
+    width: 40px;
+    height: 40px;
 }
 .project--fitness{
     background: url("./img/fitness.JPG") no-repeat center/cover ;
