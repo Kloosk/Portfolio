@@ -1,7 +1,15 @@
 ////////////////CANVAS//////////////////
 const canvas = document.querySelector("canvas");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let mobileVersion;
+if(window.innerWidth < 620){
+    mobileVersion = true;
+    canvas.width = screen.width;
+    canvas.height = screen.height;
+}
+else{
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
 let c = canvas.getContext('2d');
 const colorArr = ["#4330BF","#113059","#112959"];
 let mouse ={
@@ -34,7 +42,12 @@ class Circle {
         this.x += this.dx;
         this.y += this.dy;
         if(mouse.x - this.x < 50 && mouse.y - this.y < 50 && mouse.x - this.x > -50 && mouse.y - this.y > -50 && this.radius < 40){
-            this.radius +=2;
+            if(mobileVersion && this.radius < 10){
+                this.radius += 1;
+            }
+            else if(!mobileVersion){
+                this.radius += 2;
+            }
         }
         else if (this.radius > 4){
             this.radius -=1;
@@ -52,7 +65,14 @@ const animate = () => {
   })
 };
 const init = () => {
-    for(let i=0; i<1000; i++){
+    let howMuch;
+    if(mobileVersion){
+        howMuch = 100;
+    }
+    else{
+        howMuch = 1000;
+    }
+    for(let i=0; i<howMuch; i++){
         let radius = Math.random() * 3 + 1;
         let x = Math.random() * (innerWidth - radius *2) + radius;
         let y = Math.random() * (innerHeight - radius *2) + radius;
@@ -65,10 +85,12 @@ const init = () => {
 init();
 animate();
 window.addEventListener("resize",() => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    circleArr = [];
-    init();
+    if(!mobileVersion) {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        circleArr = [];
+        init();
+    }
 });
 window.addEventListener("mousemove",e => {
    mouse.x =  e.x;

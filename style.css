@@ -58,6 +58,8 @@ a{
     text-decoration: none;
 }
 .header{
+    width: 100vw;
+    height: 100vh;
     user-select: none;
 }
 .header__h1{
@@ -546,7 +548,7 @@ a{
 .project--this{
     background: url("./img/this.JPG") no-repeat center/cover ;
 }
-@media (min-width: 620px)  {
+@media screen and (min-width: 620px)  {
     .portfolio__a{
         pointer-events: visible;
     }
