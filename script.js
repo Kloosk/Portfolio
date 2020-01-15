@@ -135,6 +135,7 @@ const menuElement = document.querySelectorAll(".nav__menu__li");
         if(menuOpen){
             menuOpen = false;
             menu.classList.remove("menu--open");
+            ham.classList.toggle("span--active");
         }
     });
 });
