@@ -102,10 +102,13 @@ window.addEventListener("mousemove",e => {
    mouse.y =  e.y;
 });
 //////////////////////////////////////////////////
+let menuOpen = false;
 const ham = document.querySelector(".nav__ham");
-ham.addEventListener("click",() => {
-   const menu = document.querySelector(".nav__menu");
+const menu = document.querySelector(".nav__menu");
+ham.addEventListener("click",()=> {
+    ham.classList.toggle("span--active");
     menu.classList.toggle("menu--open");
+    menuOpen = !menuOpen;
 });
 const projectOver =  document.querySelectorAll(".project__over");
 projectOver.forEach(el => {
@@ -125,4 +128,13 @@ form.addEventListener("submit",e => {
     else {
         e.preventDefault();
     }
+});
+const menuElement = document.querySelectorAll(".nav__menu__li");
+    menuElement.forEach(el => {
+    el.addEventListener("click",() => {
+        if(menuOpen){
+            menuOpen = false;
+            menu.classList.remove("menu--open");
+        }
+    });
 });
