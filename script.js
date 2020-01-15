@@ -1,10 +1,15 @@
 ////////////////CANVAS//////////////////
 const canvas = document.querySelector("canvas");
 let mobileVersion;
+let width = window.innerWidth;
+let height = window.innerHeight;
 if(window.innerWidth < 620){
     mobileVersion = true;
-    canvas.width = screen.width;
-    canvas.height = screen.height;
+    width = screen.width;
+    height = screen.height;
+    canvas.width = width;
+    canvas.height = height;
+
 }
 else{
     canvas.width = window.innerWidth;
@@ -33,10 +38,10 @@ class Circle {
         c.fillStyle = this.color;
     }
     update(){
-        if(this.x+this.radius>innerWidth || this.x-this.radius < 0){
+        if(this.x+this.radius>width || this.x-this.radius < 0){
             this.dx = -this.dx;
         }
-        if(this.y+this.radius>innerHeight || this.y-this.radius < 0){
+        if(this.y+this.radius>height || this.y-this.radius < 0){
             this.dy = -this.dy;
         }
         this.x += this.dx;
@@ -59,7 +64,7 @@ class Circle {
 let circleArr = [];
 const animate = () => {
   requestAnimationFrame(animate);
-  c.clearRect(0,0,innerWidth,innerHeight);
+  c.clearRect(0,0,width,height);
   circleArr.forEach(circle => {
       circle.update();
   })
@@ -74,8 +79,8 @@ const init = () => {
     }
     for(let i=0; i<howMuch; i++){
         let radius = Math.random() * 3 + 1;
-        let x = Math.random() * (innerWidth - radius *2) + radius;
-        let y = Math.random() * (innerHeight - radius *2) + radius;
+        let x = Math.random() * (width - radius *2) + radius;
+        let y = Math.random() * (height - radius *2) + radius;
         let dx = (Math.random() - 0.5);
         let dy = (Math.random() - 0.5);
         let color = colorArr[Math.floor(Math.random() * 3)];
