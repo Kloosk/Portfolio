@@ -574,6 +574,12 @@ a{
 .project--this{
     background: url("./img/this.JPG") no-repeat center/cover ;
 }
+.project--modern{
+    background: url("./img/this.JPG") no-repeat center/cover ;
+}
+.project--first{
+    background: url("./img/first.jpg") no-repeat center/cover ;
+}
 @media screen and (min-width: 620px)  {
     .portfolio__a{
         pointer-events: visible;
