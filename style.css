@@ -241,6 +241,12 @@ a{
     font-size: 2.5rem;
     color: #04020F;
 }
+.about__p{
+    text-align: center;
+    width: 80%;
+    margin: 7px auto 0 auto;
+    font-size: 1.2rem;
+}
 .about__hr{
     margin: 10px 0;
     width: 80%;
@@ -325,47 +331,21 @@ a{
 }
 .about__tech{
     margin-top: 50px;
-    display: flex;
-    flex-direction: column;
+    display: grid;
     align-items: center;
-    width: 100vw;
-}
-.tech__el{
-    display: flex;
-    width: 80%;
-    height: 30px;
-    margin-bottom: 15px;
+    justify-items: center;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    width: 80vw;
 }
 .tech__el__name{
     font-size: 1.2rem;
-    padding-top: 3px;
+    padding: 15px 0;
     text-align: center;
     height: 100%;
-    width: 20%;
+    width: 100%;
     color: #F0EFEB;
     background-color: #224071;
-}
-.tech__el__slider{
-    height: 100%;
-    width: 80%;
-    border: 1px solid #0F1C3E;
-    background-color: #F0EFEB;
-    position:relative;
-}
-.tech__el__progress{
-    position: absolute;
-    top:0;
-    left:0;
-    height: 100%;
-    width: 80%;
-    background-color: #113059;
-}
-.tech__el__percent{
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #616F8C;
 }
 .progress--js{
     width: 70%;
@@ -575,10 +555,16 @@ a{
     background: url("./img/this.JPG") no-repeat center/cover ;
 }
 .project--modern{
-    background: url("./img/this.JPG") no-repeat center/cover ;
+    background: url("./img/modern.png") no-repeat center/cover ;
 }
 .project--first{
     background: url("./img/first.jpg") no-repeat center/cover ;
+}
+.project--rockets{
+    background: url("./img/rockets.png") no-repeat center/cover ;
+}
+.project--shopp{
+    background: url("./img/shopp.png") no-repeat center/cover ;
 }
 @media screen and (min-width: 620px)  {
     .portfolio__a{
@@ -587,8 +573,9 @@ a{
     .about__grid{
         grid-template-columns: repeat(2,1fr);
     }
-    .tech__el{
-        width: 60%;
+    .about__tech{
+        grid-template-columns: repeat(4, 1fr);
+        width: 50vw;
     }
     .portfolio__projects{
         grid-template-columns: repeat(2,1fr);

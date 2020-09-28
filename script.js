@@ -72,7 +72,7 @@ const animate = () => {
 const init = () => {
     let howMuch;
     if(mobileVersion){
-        howMuch = 100;
+        howMuch = 150;
     }
     else{
         howMuch = 1000;
@@ -89,7 +89,7 @@ const init = () => {
 };
 init();
 animate();
-window.addEventListener("resize",() => {
+window.addEventListener("resize",() => { // wydarzenie ktore odpowiada za zmienianie sie rozmiaru okna i dostosywanie rozmiaru tego obszaru gdzie znajduja sie kropki
     if(!mobileVersion) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -97,11 +97,11 @@ window.addEventListener("resize",() => {
         init();
     }
 });
-window.addEventListener("mousemove",e => {
+window.addEventListener("mousemove",e => { // pokazuje aktualana pozycje myszki
    mouse.x =  e.x;
    mouse.y =  e.y;
 });
-//////////////////////////////////////////////////
+////////////////////////////////////////////////// TUTAJ KONIEC KROPEK
 let menuOpen = false;
 const ham = document.querySelector(".nav__ham");
 const menu = document.querySelector(".nav__menu");
@@ -109,14 +109,14 @@ ham.addEventListener("click",()=> {
     ham.classList.toggle("span--active");
     menu.classList.toggle("menu--open");
     menuOpen = !menuOpen;
-});
+}); // od 108-114 odpowiada za otwieranie sie menu po kliku hamburgera
 const projectOver =  document.querySelectorAll(".project__over");
 projectOver.forEach(el => {
     el.addEventListener("click",e => {
         e.target.children[1].style.pointerEvents = "visible";
         e.target.children[2].style.pointerEvents = "visible";
     })
-});
+}); // 115-121 odpowiada za te elementy z przykladowymi stronami, pokazuej to co sie pojawia po kliku(telefon) bądź najechaniu myszą
 const form = document.querySelector(".footer__form");
 form.addEventListener("submit",e => {
     let email = document.querySelector(".form__input").value;
@@ -128,7 +128,7 @@ form.addEventListener("submit",e => {
     else {
         e.preventDefault();
     }
-});
+}); // 122-133 odpowiada za wyslanie formularza kontaktowego
 const menuElement = document.querySelectorAll(".nav__menu__li");
     menuElement.forEach(el => {
     el.addEventListener("click",() => {
@@ -138,4 +138,4 @@ const menuElement = document.querySelectorAll(".nav__menu__li");
             ham.classList.toggle("span--active");
         }
     });
-});
+}); // od 134 odpowiada za to że np kiedy ktoś kliknie na jakiś element z menu żeby się przenieść na daną sekcję to zamknie sie menu
