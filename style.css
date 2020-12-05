@@ -615,3 +615,11 @@ a{
         grid-gap: 25px;
     }
 }
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 900px)
+and (orientation: landscape) {
+    .nav{
+        height: 55px;
+    }
+}
