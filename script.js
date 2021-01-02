@@ -75,7 +75,7 @@ const init = () => {
         howMuch = 150;
     }
     else{
-        howMuch = 1000;
+        howMuch = 800;
     }
     for(let i=0; i<howMuch; i++){
         let radius = Math.random() * 3 + 1;
@@ -90,7 +90,7 @@ const init = () => {
 init();
 animate();
 
-window.addEventListener("resize",() => { // wydarzenie ktore odpowiada za zmienianie sie rozmiaru okna i dostosywanie rozmiaru tego obszaru gdzie znajduja sie kropki
+window.addEventListener("resize",() => { // zmiana rozmiaru okna i dostosywanie rozmiaru tego obszaru gdzie znajduja sie kropki
     if(!mobileVersion) {
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
@@ -104,7 +104,28 @@ window.addEventListener("mousemove",e => { // pokazuje aktualana pozycje myszki
    mouse.y =  e.y;
 });
 
-////////////////////////////////////////////////// TUTAJ KONIEC KROPEK
+//////////////////////////////////////////////////
+//Smooth scroll
+const toHome = document.getElementById("home");
+const toAbout = document.getElementById("about");
+const toProjects = document.getElementById("projects");
+const toContact = document.getElementById("contact");
+document.getElementById("fromHome").addEventListener("click",() => {
+    scrollTo(document.documentElement, toHome.offsetTop, 400);
+});
+document.getElementById("fromAbout").addEventListener("click",() => {
+    scrollTo(document.documentElement, toAbout.offsetTop, 400);
+});
+document.getElementById("fromPortfolio").addEventListener("click",() => {
+    scrollTo(document.documentElement, toProjects.offsetTop, 400);
+});
+document.getElementById("fromContact").addEventListener("click",() => {
+    scrollTo(document.documentElement, toContact.offsetTop, 400);
+});
+document.getElementById("fromArrow").addEventListener("click",() => {
+    scrollTo(document.documentElement, toHome.offsetTop, 500);
+});
+///////////////////////////////////////////////////
 let menuOpen = false;
 const ham = document.querySelector(".nav__ham");
 const menu = document.querySelector(".nav__menu");
@@ -173,3 +194,12 @@ const menuElement = document.querySelectorAll(".nav__menu__li");
         }
     });
 });
+const scrollTo = (element, to, duration) => {
+    let difference = to - element.scrollTop;
+    let perTick = difference / duration * 10;
+    setTimeout(() => {
+        element.scrollTop = element.scrollTop + perTick;
+        if (element.scrollTop === to) return;
+        scrollTo(element, to, duration - 10);
+    }, 10);
+};
