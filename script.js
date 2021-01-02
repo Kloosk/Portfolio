@@ -105,27 +105,6 @@ window.addEventListener("mousemove",e => { // pokazuje aktualana pozycje myszki
 });
 
 //////////////////////////////////////////////////
-//Smooth scroll
-const toHome = document.getElementById("home");
-const toAbout = document.getElementById("about");
-const toProjects = document.getElementById("projects");
-const toContact = document.getElementById("contact");
-document.getElementById("fromHome").addEventListener("click",() => {
-    scrollTo(document.documentElement, toHome.offsetTop, 400);
-});
-document.getElementById("fromAbout").addEventListener("click",() => {
-    scrollTo(document.documentElement, toAbout.offsetTop, 400);
-});
-document.getElementById("fromPortfolio").addEventListener("click",() => {
-    scrollTo(document.documentElement, toProjects.offsetTop, 400);
-});
-document.getElementById("fromContact").addEventListener("click",() => {
-    scrollTo(document.documentElement, toContact.offsetTop, 400);
-});
-document.getElementById("fromArrow").addEventListener("click",() => {
-    scrollTo(document.documentElement, toHome.offsetTop, 500);
-});
-///////////////////////////////////////////////////
 let menuOpen = false;
 const ham = document.querySelector(".nav__ham");
 const menu = document.querySelector(".nav__menu");
