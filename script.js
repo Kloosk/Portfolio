@@ -9,7 +9,6 @@ if(window.innerWidth < 620){
     height = screen.height;
     canvas.width = width;
     canvas.height = height;
-
 }
 else{
     canvas.width = window.innerWidth;
@@ -31,7 +30,6 @@ class Circle {
         this.color = color;
     }
     draw(){
-
         c.beginPath();
         c.arc(this.x,this.y,this.radius,0,2*Math.PI,false);
         c.fill();
@@ -57,7 +55,6 @@ class Circle {
         else if (this.radius > 4){
             this.radius -=1;
         }
-
         this.draw();
     }
 }
@@ -72,10 +69,10 @@ const animate = () => {
 const init = () => {
     let howMuch;
     if(mobileVersion){
-        howMuch = 150;
+        howMuch = 50;
     }
     else{
-        howMuch = 800;
+        howMuch = 400;
     }
     for(let i=0; i<howMuch; i++){
         let radius = Math.random() * 3 + 1;
@@ -99,7 +96,7 @@ window.addEventListener("resize",() => { // zmiana rozmiaru okna i dostosywanie 
     }
 });
 
-window.addEventListener("mousemove",e => { // pokazuje aktualana pozycje myszki
+canvas.addEventListener("mousemove",e => { // pokazuje aktualana pozycje myszki
    mouse.x =  e.x;
    mouse.y =  e.y;
 });
