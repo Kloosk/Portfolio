@@ -137,16 +137,6 @@ ham.addEventListener("click",()=> {
     toogleMenu();
 });
 
-
-
-const projectOver =  document.querySelectorAll(".project__over");
-projectOver.forEach(el => {
-    el.addEventListener("click",e => {
-        e.target.children[1].style.pointerEvents = "visible";
-        e.target.children[2].style.pointerEvents = "visible";
-    })
-});// 115-121 odpowiada za te elementy z przykladowymi stronami, pokazuej to co sie pojawia po kliku(telefon) bądź najechaniu myszą
-
 const form = document.querySelector(".footer__form");
 form.addEventListener("submit",e => {
     let email = document.querySelector(".form__input").value;

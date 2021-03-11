@@ -372,9 +372,6 @@ a{
     align-content: center;
 
 }
-.portfolio__a{
-    pointer-events: none;
-}
 .project{
     width: 300px;
     height: 300px;
@@ -382,30 +379,42 @@ a{
     margin: 15px 0;
     background-color: #BF1736;
     border: 4px solid #224071;
-}
-.project__over{
     overflow: hidden;
+}
+.project__over--bot{
     position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 50%;
     background-color: #0F1C3E;
+    transition: all 0.3s ease-in-out;
+    bottom: 0;
+    transform: translateY(100%);
+    opacity: 0.9;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+}
+.project__over--top{
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background-color: #0F1C3E;
     transition: all 0.3s ease-in-out;
-    opacity: 0;
+    top: 0;
+    transform: translateY(-100%);
+    opacity: 0.9;
 
 }
-.project:hover .project__over{
-    opacity: 1;
+.project:hover .project__over--bot{
+    transform: translateY(0);
+}
+.project:hover .project__over--top{
+    transform: translateY(0);
 }
 .project__btn{
-    transform: translateY(200px);
-    transition: transform 0.2s ease-in-out 0.2s, height 0.5s ease-in,border 0.5s ease-in,display 0.2s ease-in-out 0.2s;
-    user-select: none;
     cursor: pointer;
     outline: none;
     color: #616F8C;
@@ -417,25 +426,16 @@ a{
     background-color: transparent;
 }
 .project__btn:hover{
-    color: #BF1736;
     border: 2px solid #BF1736;
+    color: #BF1736;
 }
-.project__over:hover .project__btn{
-    transform: translateY(0);
-}
-.project__over:hover .project__h1{
-    transform: translateY(0);
- }
-
 .project__h1{
-    transform: translateY(-150px);
-    transition: transform 0.2s ease-in-out 0.2s;
     user-select: none;
     text-align: center;
     color: #616F8C;
     font-weight: bold;
     font-size: 2.3rem;
-    margin-bottom: 20px;
+    margin: 20px 0;
 }
 .project__span{
     text-align: center;
@@ -574,15 +574,15 @@ a{
 .project--cut{
     background: url("./img/cut.png") no-repeat center/cover ;
 }
+.project--todo{
+    background: url("./img/todo.jpg") no-repeat ;
+}
 @media screen and (min-width: 325px){
     .header__btn {
         font-size: 2rem;
     }
 }
 @media screen and (min-width: 620px)  {
-    .portfolio__a{
-        pointer-events: visible;
-    }
     .about__grid{
         grid-template-columns: repeat(2,1fr);
     }
